@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Roller {
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String args[]) throws InterruptedException, IOException {
         Scanner reader = new Scanner(System.in);
         ArrayList<String> name = new ArrayList<>();
         ArrayList<Integer> number = new ArrayList<>();
@@ -35,10 +36,9 @@ public class Roller {
         }
         Thread.currentThread().sleep(2000);
 
-//        System.out.println("选取你的幸运数字！");
-//        if (reader.hasNext()){
+        System.out.println("回车开始Rock'n'Roll!");
+        System.in.read();
         int times = (int) (Math.random() * 20 + 50);
-//            System.out.println("times:"+times);
         int time = 10;
         for (int i = times; i > 0; i--) {
             times--;
@@ -75,6 +75,10 @@ public class Roller {
     }
 
     private static boolean isOK(ArrayList<String> name, ArrayList<Integer> number, String m, int n) {
+        if (n > 100 || n < 1) {
+            System.out.println("只能输入1~100之间的数字。");
+            return false;
+        }
         for (int i = 0; i < name.size(); i++) {
             String j = name.get(i);
             int k = number.get(i);
