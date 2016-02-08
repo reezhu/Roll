@@ -30,25 +30,29 @@ public class Roller {
             }
             System.out.println("输入名字,或者输入l来查看选择列表或者q来继续");
         }
+        System.out.println("===========参与人数列表============");
         for (int i = 0; i < name.size(); i++) {
-            System.out.println(name.get(i) + ":" + number.get(i));
             Thread.currentThread().sleep(500);
+            System.out.println(name.get(i) + ":" + number.get(i));
         }
-        Thread.currentThread().sleep(2000);
-
+        System.out.println("===========共" + name.size() + "人参与============");
         System.out.println("回车开始Rock'n'Roll!");
         System.in.read();
-        int times = (int) (Math.random() * 20 + 50);
+
+        int times = (int) (Math.random() * 50 + 200);
         int time = 10;
+        String prefix = ">";
         for (int i = times; i > 0; i--) {
             times--;
             int temp = (int) (Math.random() * 100);
-            System.out.println("" + temp);
             if (i != 1) {
                 Thread.currentThread().sleep(time);
             }
-            if (times < 10) {
+            System.out.println(prefix + temp);
+
+            if (times < 9) {
                 time += 200;
+                prefix = "=" + prefix;
             }
             if (i <= 1) {
                 luckyNumber = temp;
@@ -70,7 +74,16 @@ public class Roller {
                 luckyDog = nn;
             }
         }
-        System.out.println("幸运女神降临在了" + luckyName + "头上！");
+        Thread.currentThread().sleep(500);
+        System.out.println();
+        System.out.println();
+        System.out.println("*★,°*:.☆\\(￣▽￣)/$:*.°★*");
+        System.out.println("    幸运女神降临在了" + luckyName + "头上！");
+        System.out.println("*★,°*:.☆\\(￣▽￣)/$:*.°★*");
+        System.out.println();
+        System.out.println();
+        System.out.println("enter to leave");
+        System.in.read();
 
     }
 
